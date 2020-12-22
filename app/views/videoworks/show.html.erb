@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @videowork.title %>
+</p>
+
+<p>
+  <strong>Screening at:</strong>
+  <%= @videowork.screening_at %>
+</p>
+
+<p>
+  <strong>Screening on:</strong>
+  <%= @videowork.screening_on %>
+</p>
+
+<p>
+  <strong>Summary:</strong>
+  <%= @videowork.summary %>
+</p>
+
+<p>
+  <strong>Directors:</strong>
+  <%= @videowork.directors %>
+</p>
+
+<p>
+  <strong>Screenplaies:</strong>
+  <%= @videowork.screenplaies %>
+</p>
+
+<p>
+  <strong>Casts:</strong>
+  <%= @videowork.casts %>
+</p>
+
+<%= link_to 'Edit', edit_videowork_path(@videowork) %> |
+<%= link_to 'Back', videoworks_path %>

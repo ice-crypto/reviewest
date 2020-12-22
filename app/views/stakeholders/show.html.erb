@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Real name:</strong>
+  <%= @stakeholder.real_name %>
+</p>
+
+<p>
+  <strong>Name alias:</strong>
+  <%= @stakeholder.name_alias %>
+</p>
+
+<p>
+  <strong>Birthday at:</strong>
+  <%= @stakeholder.birthday_at %>
+</p>
+
+<p>
+  <strong>From:</strong>
+  <%= @stakeholder.from %>
+</p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @stakeholder.height %>
+</p>
+
+<p>
+  <strong>Introduce:</strong>
+  <%= @stakeholder.introduce %>
+</p>
+
+<p>
+  <strong>Images:</strong>
+  <%= @stakeholder.images %>
+</p>
+
+<%= link_to 'Edit', edit_stakeholder_path(@stakeholder) %> |
+<%= link_to 'Back', stakeholders_path %>

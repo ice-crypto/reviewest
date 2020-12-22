@@ -1,0 +1,2 @@
+class Videowork < ApplicationRecord
+end

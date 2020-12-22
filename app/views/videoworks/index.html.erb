@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Videoworks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Screening at</th>
+      <th>Screening on</th>
+      <th>Summary</th>
+      <th>Directors</th>
+      <th>Screenplaies</th>
+      <th>Casts</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @videoworks.each do |videowork| %>
+      <tr>
+        <td><%= videowork.title %></td>
+        <td><%= videowork.screening_at %></td>
+        <td><%= videowork.screening_on %></td>
+        <td><%= videowork.summary %></td>
+        <td><%= videowork.directors %></td>
+        <td><%= videowork.screenplaies %></td>
+        <td><%= videowork.casts %></td>
+        <td><%= link_to 'Show', videowork %></td>
+        <td><%= link_to 'Edit', edit_videowork_path(videowork) %></td>
+        <td><%= link_to 'Destroy', videowork, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Videowork', new_videowork_path %>

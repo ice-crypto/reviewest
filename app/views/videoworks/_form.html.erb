@@ -1,0 +1,52 @@
+<%= form_with(model: videowork, local: true) do |form| %>
+  <% if videowork.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(videowork.errors.count, "error") %> prohibited this videowork from being saved:</h2>
+
+      <ul>
+        <% videowork.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :screening_at %>
+    <%= form.date_select :screening_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :screening_on %>
+    <%= form.date_select :screening_on %>
+  </div>
+
+  <div class="field">
+    <%= form.label :summary %>
+    <%= form.text_area :summary %>
+  </div>
+
+  <div class="field">
+    <%= form.label :directors %>
+    <%= form.text_field :directors %>
+  </div>
+
+  <div class="field">
+    <%= form.label :screenplaies %>
+    <%= form.text_field :screenplaies %>
+  </div>
+
+  <div class="field">
+    <%= form.label :casts %>
+    <%= form.text_field :casts %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

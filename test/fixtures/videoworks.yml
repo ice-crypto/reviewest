@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  screening_at: 2020-12-22
+  screening_on: 2020-12-22
+  summary: MyText
+  directors: 
+  screenplaies: 
+  casts: 
+
+two:
+  title: MyString
+  screening_at: 2020-12-22
+  screening_on: 2020-12-22
+  summary: MyText
+  directors: 
+  screenplaies: 
+  casts: 

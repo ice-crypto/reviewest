@@ -1,0 +1,2 @@
+class VideoworkStakeholder < ApplicationRecord
+end

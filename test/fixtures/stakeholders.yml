@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  real_name: MyString
+  name_alias: MyString
+  birthday_at: 2020-12-22
+  from: MyString
+  height: 1.5
+  introduce: MyText
+  images: 
+
+two:
+  real_name: MyString
+  name_alias: MyString
+  birthday_at: 2020-12-22
+  from: MyString
+  height: 1.5
+  introduce: MyText
+  images: 
