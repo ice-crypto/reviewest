@@ -32,7 +32,9 @@ ActiveRecord::Schema.define(version: 2020_12_22_143037) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "videowork_id"
     t.bigint "genre_id"
+    t.bigint "user_id"
     t.index ["genre_id"], name: "index_reviews_on_genre_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
     t.index ["videowork_id"], name: "index_reviews_on_videowork_id"
   end
 
@@ -48,13 +50,13 @@ ActiveRecord::Schema.define(version: 2020_12_22_143037) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "user_relatoins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "user_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "follow_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["follow_id"], name: "index_user_relatoins_on_follow_id"
-    t.index ["user_id"], name: "index_user_relatoins_on_user_id"
+    t.index ["follow_id"], name: "index_user_relations_on_follow_id"
+    t.index ["user_id"], name: "index_user_relations_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -98,9 +100,10 @@ ActiveRecord::Schema.define(version: 2020_12_22_143037) do
   end
 
   add_foreign_key "reviews", "genres"
+  add_foreign_key "reviews", "users"
   add_foreign_key "reviews", "videoworks"
-  add_foreign_key "user_relatoins", "users"
-  add_foreign_key "user_relatoins", "users", column: "follow_id"
+  add_foreign_key "user_relations", "users"
+  add_foreign_key "user_relations", "users", column: "follow_id"
   add_foreign_key "videowork_stakeholders", "stakeholders"
   add_foreign_key "videowork_stakeholders", "videoworks"
   add_foreign_key "videoworks", "categories"
