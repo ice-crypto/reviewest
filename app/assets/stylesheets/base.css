@@ -53,6 +53,11 @@ only screen and (min-device-pixel-ratio : 1.5){
     background-position-y: 1vh;
     background-size: 99vw;
   }
+  p{
+    font-size: 1rem;
+    line-height: 1.5rem;
+    padding-bottom: 15vh;
+  }
   section h3{
     font-size: 1.4rem;
   }
@@ -60,8 +65,16 @@ only screen and (min-device-pixel-ratio : 1.5){
     margin-top: 60px;
   }
   section.content{
-    width: 70vw;
+    width: 95vw;
     margin: 0 auto;
-    margin-top: 30vh;
+    margin-top: 35vh;
+  }
+  img.media-image{
+    width: 25vw;
+    margin-left: 5px;
+    margin-top: 5px;
+  }
+  .media{
+    padding: 5px;
   }
 }

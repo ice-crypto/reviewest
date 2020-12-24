@@ -42,12 +42,12 @@
 
   <div class="field">
     <%= form.label :screening_at %>
-    <%= form.date_select :screening_at %>
+    <%= form.date_select :screening_at, start_year:Time.now.year-100 %>
   </div>
 
   <div class="field">
     <%= form.label :screening_on %>
-    <%= form.date_select :screening_on %>
+    <%= form.date_select :screening_on, start_year:Time.now.year-100 %>
   </div>
 
   <div class="field">
