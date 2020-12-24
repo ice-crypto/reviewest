@@ -1,10 +1,11 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /reviews
   # GET /reviews.json
   def index
-    @reviews = Review.all
+    @reviews = Review.all.order(created_at: 'desc')
   end
 
   # GET /reviews/1
@@ -15,6 +16,8 @@ class ReviewsController < ApplicationController
   # GET /reviews/new
   def new
     @review = Review.new
+    @videowork = Videowork.find_by(id: params["video"])
+    render :new
   end
 
   # GET /reviews/1/edit
@@ -25,7 +28,7 @@ class ReviewsController < ApplicationController
   # POST /reviews.json
   def create
     @review = Review.new(review_params)
-
+    @videowork = Videowork.find_by(id:review_params[:videowork_id])
     respond_to do |format|
       if @review.save
         format.html { redirect_to @review, notice: 'Review was successfully created.' }
@@ -69,6 +72,6 @@ class ReviewsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def review_params
-      params.require(:review).permit(:title, :body, :star)
+      params.require(:review).permit(:title, :body, :star, :videowork_id, :user_id)
     end
 end

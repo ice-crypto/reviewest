@@ -12,19 +12,29 @@ class VideoworksController < ApplicationController
   def show
   end
 
+  def select
+    @videoworks = Videowork.all
+  end
+
   # GET /videoworks/new
   def new
     @videowork = Videowork.new
+    @genres = Genre.all
+    @categories = Category.all
   end
 
   # GET /videoworks/1/edit
   def edit
+    @genres = Genre.all
+    @categories = Category.all
   end
 
   # POST /videoworks
   # POST /videoworks.json
   def create
     @videowork = Videowork.new(videowork_params)
+    @genres = Genre.all
+    @categories = Category.all
 
     respond_to do |format|
       if @videowork.save
@@ -69,6 +79,6 @@ class VideoworksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def videowork_params
-      params.require(:videowork).permit(:title, :screening_at, :screening_on, :summary, :directors, :screenplaies, :casts)
+      params.require(:videowork).permit(:title, :screening_at, :screening_on, :summary, :directors, :screenplaies, :casts, :image, :category_id, :genre_id)
     end
 end

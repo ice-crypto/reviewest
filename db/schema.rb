@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_22_143037) do
+ActiveRecord::Schema.define(version: 2020_12_24_023210) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
@@ -31,9 +31,7 @@ ActiveRecord::Schema.define(version: 2020_12_22_143037) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "videowork_id"
-    t.bigint "genre_id"
     t.bigint "user_id"
-    t.index ["genre_id"], name: "index_reviews_on_genre_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
     t.index ["videowork_id"], name: "index_reviews_on_videowork_id"
   end
@@ -72,6 +70,7 @@ ActiveRecord::Schema.define(version: 2020_12_22_143037) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "admin_flg"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -96,10 +95,12 @@ ActiveRecord::Schema.define(version: 2020_12_22_143037) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "category_id"
+    t.bigint "genre_id"
+    t.json "image"
     t.index ["category_id"], name: "index_videoworks_on_category_id"
+    t.index ["genre_id"], name: "index_videoworks_on_genre_id"
   end
 
-  add_foreign_key "reviews", "genres"
   add_foreign_key "reviews", "users"
   add_foreign_key "reviews", "videoworks"
   add_foreign_key "user_relations", "users"
@@ -107,4 +108,5 @@ ActiveRecord::Schema.define(version: 2020_12_22_143037) do
   add_foreign_key "videowork_stakeholders", "stakeholders"
   add_foreign_key "videowork_stakeholders", "videoworks"
   add_foreign_key "videoworks", "categories"
+  add_foreign_key "videoworks", "genres"
 end

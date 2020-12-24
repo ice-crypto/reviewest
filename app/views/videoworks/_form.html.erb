@@ -1,3 +1,27 @@
+<script type='text/javascript'>
+        tinymce.init({
+            selector : '#videowork_summary',
+            height: 700,
+            setup: function (editor) {
+                editor.on('init change', function () {
+                    editor.save();
+                });
+            },
+            plugins  : [
+                'advlist anchor autolink autoresize autosave charmap code',
+                'directionality emoticons hr  importcss insertdatetime legacyoutput link lists',
+                'media nonbreaking noneditable pagebreak paste preview save searchreplace',
+                'tabfocus table textpattern toc visualblocks visualchars wordcount'
+            ],
+            toolbar  : 'formatselect bold italic underline forecolor backcolor| alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link | code',
+            menubar  : true,
+            element_format : 'html',
+            relative_urls : false,
+            branding: false,
+            image_title: true,
+            automatic_uploads: true,
+            });
+    </script>
 <%= form_with(model: videowork, local: true) do |form| %>
   <% if videowork.errors.any? %>
     <div id="error_explanation">
@@ -28,7 +52,7 @@
 
   <div class="field">
     <%= form.label :summary %>
-    <%= form.text_area :summary %>
+    <%= form.text_area :summary,'height'=>'700' %>
   </div>
 
   <div class="field">
@@ -45,6 +69,23 @@
     <%= form.label :casts %>
     <%= form.text_field :casts %>
   </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category_id %>
+    <%= form.collection_select(:category_id,@categories,:id,:name) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :genre_id %>
+    <%= form.collection_select(:genre_id,@genres,:id,:name) %>
+  </div>
+
+
 
   <div class="actions">
     <%= form.submit %>

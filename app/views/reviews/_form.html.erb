@@ -1,3 +1,27 @@
+<script type='text/javascript'>
+        tinymce.init({
+            selector : '#review_body',
+            height: 700,
+            setup: function (editor) {
+                editor.on('init change', function () {
+                    editor.save();
+                });
+            },
+            plugins  : [
+                'advlist anchor autolink autoresize autosave charmap code',
+                'directionality emoticons hr  importcss insertdatetime legacyoutput link lists',
+                'media nonbreaking noneditable pagebreak paste preview save searchreplace',
+                'tabfocus table textpattern toc visualblocks visualchars wordcount'
+            ],
+            toolbar  : 'formatselect bold italic underline forecolor backcolor| alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link | code',
+            menubar  : true,
+            element_format : 'html',
+            relative_urls : false,
+            branding: false,
+            image_title: true,
+            automatic_uploads: true,
+            });
+    </script>
 <%= form_with(model: review, local: true) do |form| %>
   <% if review.errors.any? %>
     <div id="error_explanation">
@@ -12,19 +36,22 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
+    <%= form.label :title,'レビュータイトル' %>
     <%= form.text_field :title %>
   </div>
 
   <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
+    <%= form.label :body, 'レビュー本文'%>
+    <%= form.text_area :body,'height'=>'700'%>
   </div>
 
   <div class="field">
-    <%= form.label :star %>
-    <%= form.text_field :star %>
+    <%= form.label :star, '映画評価(0〜5)'%>
+    <%= form.select :star, options_for_select([0,1,2,3,4,5]) %>
   </div>
+
+  <%= form.hidden_field :videowork_id,value:@videowork.id %>
+  <%= form.hidden_field :user_id,value:current_user.id %>
 
   <div class="actions">
     <%= form.submit %>

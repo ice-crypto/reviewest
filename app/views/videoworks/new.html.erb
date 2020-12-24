@@ -1,5 +1,7 @@
-<h1>New Videowork</h1>
-
-<%= render 'form', videowork: @videowork %>
-
-<%= link_to 'Back', videoworks_path %>
+<section class="content">
+  <h3>映画情報新規作成</h3>
+  <div class="content-body">
+    <%= render 'form', videowork: @videowork %>
+  </div>
+  <%= link_to 'Back', videoworks_path %>
+</section>

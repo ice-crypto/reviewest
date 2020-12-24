@@ -1,2 +1,26 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<%if user_signed_in?%>
+<section class="content">
+  <h3>このサイトについて</h3>
+  <div class="content-body">
+    <p>このサイトは、管理人のふとした思いつきで作成し始めました、映画コミュニティーサイトです。</p>
+    <p>    映画は、本当に不思議なものです。架空のものであるはずなのに、実際に生きている人間の選択に大きく影響を与えたり、
+        人の命を救ったりしたこともあるとかないとか。 <br>
+        そんな素敵な作品について、仕事やコロナやコロナなど一旦嫌なことや「大人」という枷を外して、 <br>
+        リラックスして楽しく映画について語らいませんか？ <br></p>
+    <p>
+      （ただいま、当サイトはβ版のため機能の大幅変更・追加の可能性があります。予めご容赦ください） <br>
+      また、操作方法など当サイトが初めての方は右上のメニューから「ヘルプ」をご覧ください
+    </p>
+    <p>管理人 磯海隼人</p>
+  </div>
+</section>
+<%else%>
+<style media="screen">
+  body{
+    background-size:0;
+  }
+  .tonakai{
+    background-size:0;
+  }
+</style>
+<%end%>

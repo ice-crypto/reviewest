@@ -1,0 +1,67 @@
+p{
+  background-color: white;
+}
+section.content{
+  width: 70vw;
+  margin: 0 auto;
+}
+div.media-body{
+  padding-left: 20px;
+}
+img.media-image{
+  width: 16vw;
+}
+.scrollbox{
+  height: 600px;
+  overflow: scroll;
+  border: solid 1px #a5a5a5;
+}
+.media{
+  background-color:white;
+}
+@media screen and (min-width: 768px) {
+  body{
+    margin: 3px;
+    background-image: url(/assets/santona_1.jpg);
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+  p{
+    font-size: 1.1rem;
+    line-height: 1.6rem;
+  }
+  div.content-body{
+    padding-left: 100px;
+    margin-top: 60px;
+  }
+  .tonakai{
+    width: 300px;
+    height: 300px;
+    background-image: url(/assets/topimg_original.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left;
+  }
+}
+@media screen and (max-device-width:760px) and (min-device-width:310px) and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5){
+  body{
+    margin: 3px;
+    background-image: url(/assets/xmas.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: 1vh;
+    background-size: 99vw;
+  }
+  section h3{
+    font-size: 1.4rem;
+  }
+  div.content-body{
+    margin-top: 60px;
+  }
+  section.content{
+    width: 70vw;
+    margin: 0 auto;
+    margin-top: 30vh;
+  }
+}

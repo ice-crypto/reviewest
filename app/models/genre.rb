@@ -1,3 +1,3 @@
 class Genre < ApplicationRecord
-  has_many :reviews
+  has_many :videoworks
 end

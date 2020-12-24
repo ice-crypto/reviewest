@@ -1,6 +1,6 @@
 <header class="mb-4">
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <a class="navbar-brand" href="/">Home</a>
+        <a class="navbar-brand" href="/">Reviewest</a>
 
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
             <span class="navbar-toggler-icon"></span>
@@ -14,10 +14,30 @@
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User</a>
                     <ul class="dropdown-menu dropdown-menu-right">
                         <li class="dropdown-divider"></li>
-                        <%= link_to '<li class="dropdown-item">レビューを書く</li>'.html_safe, new_review_path%>
+                        <%= link_to '<li class="dropdown-item">レビュータイムライン</li>'.html_safe, reviews_path %>
+                        <li class="dropdown-divider"></li>
+                        <%= link_to '<li class="dropdown-item">映画作成</li>'.html_safe, new_videowork_path %>
+                        <li class="dropdown-divider"></li>
+                        <%= link_to '<li class="dropdown-item">レビューを書く</li>'.html_safe, select_videoworks_path%>
+                        <li class="dropdown-divider"></li>
+                        <%= link_to '<li class="dropdown-item">ヘルプ</li>'.html_safe, help_index_path%>
+                        <li class="dropdown-divider"></li>
                         <%= link_to '<li class="dropdown-item">ログアウト</li>'.html_safe, destroy_user_session_path, method: :delete%>
                     </ul>
                 </li>
+                <%unless current_user.admin_flg.nil?%>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">System</a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li class="dropdown-divider"></li>
+                        <%= link_to '<li class="dropdown-item">カテゴリー作成</li>'.html_safe, categories_path %>
+                        <li class="dropdown-divider"></li>
+                        <%= link_to '<li class="dropdown-item">ジャンル作成</li>'.html_safe, genres_path %>
+                        <li class="dropdown-divider"></li>
+                        <%= link_to '<li class="dropdown-item">映画作成</li>'.html_safe, videoworks_path %>
+                    </ul>
+                </li>
+                <%end%>
               <% else %>
                 <li class="nav-item"><%= link_to 'ログイン', new_user_session_path %></li>
               <% end %>
