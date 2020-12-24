@@ -22,7 +22,7 @@ img.media-image{
 @media screen and (min-width: 768px) {
   body{
     margin: 3px;
-    background-image: url(/assets/santona_1.jpg);
+    background-image: url(/images/santona_1.jpg);
     background-repeat: no-repeat;
     background-position: right;
   }
@@ -37,7 +37,7 @@ img.media-image{
   .tonakai{
     width: 300px;
     height: 300px;
-    background-image: url(/assets/topimg_original.jpg);
+    background-image: url(/images/topimg_original.jpg);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: left;
@@ -47,7 +47,7 @@ img.media-image{
 only screen and (min-device-pixel-ratio : 1.5){
   body{
     margin: 3px;
-    background-image: url(/assets/xmas.jpeg);
+    background-image: url(/images/xmas.jpeg);
     background-repeat: no-repeat;
     background-position: center;
     background-position-y: 1vh;
