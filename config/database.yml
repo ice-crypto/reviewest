@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: reviewest_production
-  username: reviewest
-  password: <%= ENV['REVIEWEST_DATABASE_PASSWORD'] %>
+  username: root
+  password: s*(T4u7n90Z% # その1で設定したサーバー側のmysqlのパスワード
+  socket: /var/lib/mysql/mysql.sock
