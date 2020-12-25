@@ -1,6 +1,6 @@
 .video-image{
   display: inline-block;
-  width: 49.5%;
+  width: 30%;
 }
 .video-image img{
   width: 100%;
@@ -25,4 +25,7 @@
 }
 .videoinfo-box .summary{
   font-size: 1.1rem;
+}
+.videoinfo-box .summary p{
+  padding-bottom: 0;
 }

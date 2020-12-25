@@ -3,13 +3,12 @@
 
 
 <section class="content">
-  <h3><%= @videowork.title%>のレビュー</h3>
-  <div class="vidework-box">
+  <div class="vidework-box mt-5">
     <div class="video-image">
       <% if @videowork.image? %>
       <%= image_tag @videowork.image.url %>
       <% else %>
-      <%= image_tag '/assets/no-image.jpg' %>
+      <%= image_tag '/images/no-image.jpg' %>
       <%end%>      </div>
       <div class="videoinfo-box">
         <div class="title"><%= @videowork.title%></div>
@@ -35,6 +34,11 @@
       </div>
       <hr>
       <span><i class="far fa-comment"></i></span><a data-toggle="collapse" href="#createcomment" role="button" aria-expanded="false" aria-controls="createcomment">コメントをする</a>
+      <%unless review.comments.blank?%>
+      <a data-toggle="collapse" href="#showcomment" role="button" aria-expanded="false" aria-controls="showcomment">コメントを表示する</a>
+      <%end%>
+
+
       <div class="collapse mt-3" id="createcomment">
         <div class="card card-body">
           <%= form_with(model: @comment, local: true) do |form|%>
@@ -46,7 +50,7 @@
           <%end%>
         </div>
       </div>
-      <a data-toggle="collapse" href="#showcomment" role="button" aria-expanded="false" aria-controls="showcomment">コメントを表示する</a>
+
       <div class="collapse mt-3" id="showcomment">
         <% review.comments.try(:each) do |comment|%>
         <div class="card card-body">
@@ -70,6 +74,4 @@
     </div>
     <%end%>
   </section>
-
-  <%= link_to 'Edit', edit_videowork_path(@videowork) %> |
-  <%= link_to 'Back', videoworks_path %>
+<div style="margin:50vh 0;"></div>
