@@ -1,0 +1,28 @@
+.video-image{
+  display: inline-block;
+  width: 49.5%;
+}
+.video-image img{
+  width: 100%;
+}
+.videoinfo-box{
+  background-color: white;
+  display: inline-block;
+  position: absolute;
+  margin-left: 20px;
+  width: 49.5%;
+}
+.videoinfo-box label{
+  margin-bottom: 0;
+}
+.videoinfo-box .title{
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+.videoinfo-box .star{
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+.videoinfo-box .summary{
+  font-size: 1.1rem;
+}

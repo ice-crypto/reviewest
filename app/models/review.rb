@@ -7,4 +7,5 @@ class Review < ApplicationRecord
     numericality: { only_integer: true}
   belongs_to :videowork
   belongs_to :user
+  has_many :comments
 end

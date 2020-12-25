@@ -1,0 +1,39 @@
+.review-box a:hover{
+  color: black;
+  background-color: white;
+}
+.review-box{
+
+}
+.review-box .user-icon {
+  display: inline-block;
+  float: left;
+  width: 70px;
+}
+.review-box .user-icon img{
+  width: 100%;
+}
+.review-box span{
+  margin-right: 5px;
+}
+.review__userinfo-box{
+  display: inline-block;
+  margin-left: 10px;
+}
+.review__userinfo-box h4{
+  font-size: .9rem;
+  font-weight: bold;
+  margin: 0;
+}
+.review__userinfo-box small{
+
+}
+.review__userinfo-box .star{
+
+}
+.comment-box{
+  width: 90%;
+}
+.comment-submit{
+  transform: translate(10px, -7px);
+}

@@ -10,6 +10,7 @@ class VideoworksController < ApplicationController
   # GET /videoworks/1
   # GET /videoworks/1.json
   def show
+    @comment = Comment.new
   end
 
   def select

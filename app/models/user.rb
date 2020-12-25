@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :trackable
 
   has_many :reviews
+  has_many :comments
   has_many :user_relations
   has_many :followings, through: :user_relations, source: :follow
   has_many :reverses_of_relation, class_name: 'UserRelation', foreign_key: 'follow_id'

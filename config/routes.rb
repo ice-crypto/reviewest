@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+  get 'comment/create'
+  get 'comment/update'
+  get 'comment/destroy'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  resources :comments
   resources :genres
   resources :stakeholders
   resources :categories

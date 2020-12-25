@@ -1,39 +1,75 @@
-<p id="notice"><%= notice %></p>
+<%= stylesheet_link_tag 'videobox', media: 'all', 'data-turbolinks-track': 'reload'%>
+<%= stylesheet_link_tag 'reviewbox', media: 'all', 'data-turbolinks-track': 'reload'%>
 
-<p>
-  <strong>Title:</strong>
-  <%= @videowork.title %>
-</p>
 
-<p>
-  <strong>Screening at:</strong>
-  <%= @videowork.screening_at %>
-</p>
+<section class="content">
+  <h3><%= @videowork.title%>のレビュー</h3>
+  <div class="vidework-box">
+    <div class="video-image">
+      <% if @videowork.image? %>
+      <%= image_tag @videowork.image.url %>
+      <% else %>
+      <%= image_tag '/assets/no-image.jpg' %>
+      <%end%>      </div>
+      <div class="videoinfo-box">
+        <div class="title"><%= @videowork.title%></div>
+        <label for="">総合評価</label>
+        <div class="star"><%= @videowork.reviews.average(:star)%></div>
+        <label for="">あらすじ</label>
+        <div class="summary"><%== @videowork.summary.try(:html_safe)%></div>
+      </div>
+    </div>
+    <div class="shadow-none p-3 mt-5 mb-5 bg-light rounded">レビュー</div>
+    <% @videowork.reviews.each do |review| %>
+    <div class="review-box shadow p-3 mb-5 bg-white rounded">
+      <div class="user-icon">
+        <%= image_tag '/assets/no-image.jpg' %>
+      </div>
+      <div class="review__userinfo-box">
+        <h4><%= review.user.id%>のレビュー</h4>
+        <small><%= review.created_at.strftime("%Y/%m/%d %H:%M") %></small>
+        <div class="star">評価: <%= review.star %></div>
+      </div>
+      <div class="review-body">
+        <%== review.body.try(:html_safe) %>
+      </div>
+      <hr>
+      <span><i class="far fa-comment"></i></span><a data-toggle="collapse" href="#createcomment" role="button" aria-expanded="false" aria-controls="createcomment">コメントをする</a>
+      <div class="collapse mt-3" id="createcomment">
+        <div class="card card-body">
+          <%= form_with(model: @comment, local: true) do |form|%>
+          <%= form.hidden_field :videowork, value: @videowork.id%>
+          <%= form.hidden_field :user_id, value: current_user.id%>
+          <%= form.hidden_field :review_id, value: review.id%>
+          <%= form.text_area :content, class:'comment-box', placeholder: 'コメント'%>
+          <%= form.submit '返信',:class=>'comment-submit' %>
+          <%end%>
+        </div>
+      </div>
+      <a data-toggle="collapse" href="#showcomment" role="button" aria-expanded="false" aria-controls="showcomment">コメントを表示する</a>
+      <div class="collapse mt-3" id="showcomment">
+        <% review.comments.try(:each) do |comment|%>
+        <div class="card card-body">
+          <div class="review-box">
+            <div class="user-icon">
+              <%= image_tag '/assets/no-image.jpg' %>
+            </div>
+            <div class="review__userinfo-box">
+              <h4><%= comment.user.id%>のレビュー</h4>
+              <small><%= comment.created_at.strftime("%Y/%m/%d %H:%M") %></small>
+            </div>
+            <div class="review-body">
+              <p>
+                <%= comment.content %>
+              </p>
+            </div>
+          </div>
+        </div>
+        <%end%>
+      </div>
+    </div>
+    <%end%>
+  </section>
 
-<p>
-  <strong>Screening on:</strong>
-  <%= @videowork.screening_on %>
-</p>
-
-<p>
-  <strong>Summary:</strong>
-  <%= @videowork.summary %>
-</p>
-
-<p>
-  <strong>Directors:</strong>
-  <%= @videowork.directors %>
-</p>
-
-<p>
-  <strong>Screenplaies:</strong>
-  <%= @videowork.screenplaies %>
-</p>
-
-<p>
-  <strong>Casts:</strong>
-  <%= @videowork.casts %>
-</p>
-
-<%= link_to 'Edit', edit_videowork_path(@videowork) %> |
-<%= link_to 'Back', videoworks_path %>
+  <%= link_to 'Edit', edit_videowork_path(@videowork) %> |
+  <%= link_to 'Back', videoworks_path %>
