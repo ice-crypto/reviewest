@@ -27,7 +27,7 @@
                 <td><%= image_tag videowork.image.url, class:'media-image' %></td>
               <%end%>
               <td><%= videowork.title %></td>
-              <td><%= videowork.summary %></td>
+              <td><%== videowork.summary.try(:html_safe) %></td>
               <td><%= link_to '新規作成', new_review_path(video:videowork.id)%></td>
             </tr>
         <% end %>

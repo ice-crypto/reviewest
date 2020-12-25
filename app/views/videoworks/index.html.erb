@@ -14,6 +14,7 @@
           <th>脚本</th>
           <th>キャスト</th>
           <th>レビュー</th>
+          <th>編集</th>
           <th colspan="3"></th>
         </tr>
       </thead>
@@ -29,6 +30,7 @@
               <td><%= videowork.screenplaies %></td>
               <td><%= videowork.casts %></td>
               <td><%= link_to 'この映画のレビューをかく', new_review_path(video:videowork.id)%></td>
+              <td><%= link_to 'Edit', edit_videowork_path(videowork) %></td>
             </tr>
         <% end %>
       </tbody>
